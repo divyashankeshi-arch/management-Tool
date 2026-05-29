@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Project Management Tool</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f2f2f2;
+}
+
+.navbar{
+    background:#222;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+button{
+    background:blue;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkblue;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
+
+#taskbox{
+    display:none;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin:20px;
+}
+
+.task{
+    background:#e6e6e6;
+    padding:10px;
+    margin-top:10px;
+    border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h1>Project Management Tool</h1>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Website Development</h2>
+
+<p>Status : Pending</p>
+
+<button onclick="showtask()">
+Assign Task
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Mobile Application</h2>
+
+<p>Status : In Progress</p>
+
+<button onclick="showtask()">
+Assign Task
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>E-commerce Project</h2>
+
+<p>Status : Completed</p>
+
+<button onclick="showtask()">
+Assign Task
+</button>
+
+</div>
+
+<div id="taskbox">
+
+<h2>Create Task</h2>
+
+<input type="text"
+id="taskname"
+placeholder="Enter Task Name">
+
+<br><br>
+
+<button onclick="addtask()">
+Add Task
+</button>
+
+<div id="tasklist">
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function showtask(){
+
+    document.getElementById("taskbox").style.display="block";
+
+}
+
+function addtask(){
+
+    let task =
+    document.getElementById("taskname").value;
+
+    if(task==""){
+
+        alert("Please Enter Task");
+
+        return;
+
+    }
+
+    let newtask =
+    document.createElement("div");
+
+    newtask.className="task";
+
+    newtask.innerHTML =
+    "Task : " + task;
+
+    document.getElementById("tasklist")
+    .appendChild(newtask);
+
+    document.getElementById("taskname").value="";
+
+}
+
+</script>
+
+</body>
+
+</html>
